@@ -1,0 +1,142 @@
+/* === Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === Base === */
+body {
+  background: linear-gradient(145deg, #111821, #1e2a38);
+  font-family: 'Poppins', sans-serif;
+  color: #f1f1f1;
+  padding: 20px 100px;
+  line-height: 1.6;
+}
+
+/* === Layout === */
+.main-article {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  grid-template-rows: 100px 1fr auto;
+  grid-template-areas:
+    "box1 box1 box1"
+    "box2 box2 box2"
+    "box3 box4 box5";
+  gap: 40px;
+}
+
+/* === Header === */
+.header {
+  grid-area: box1;
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 2px solid rgba(0, 122, 255, 0.25);
+  backdrop-filter: blur(5px);
+}
+
+.header-name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #00aaff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 0 15px rgba(0, 150, 255, 0.8);
+}
+
+/* === Image Section === */
+.pics {
+  grid-area: box2;
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.pics img {
+  height: 300px;
+  border-radius: 25px;
+  object-fit: cover;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 0 15px rgba(0, 100, 255, 0.25);
+}
+
+.pics img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(0, 150, 255, 0.6);
+}
+
+/* === Content Sections === */
+.specs, .races, .model {
+  padding-top: 10px;
+}
+
+/* === Tables === */
+.entry__detail-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.entry__detail-table td {
+  padding: 10px 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.entry__detail-table td:first-child {
+  font-weight: 600;
+  color: #00aaff;
+  width: 40%;
+}
+
+/* === Races List === */
+.races ul {
+  list-style: none;
+  text-align: center;
+}
+
+.races li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: color 0.3s ease;
+}
+
+.races li:hover {
+  color: #00aaff;
+}
+
+/* === Paragraphs (optional info text) === */
+p {
+  font-size: 2rem;
+  text-align: center;
+  color: red;
+}
+
+/* === Responsive === */
+@media (max-width: 950px) {
+  body {
+    padding: 50px 30px;
+  }
+
+  .main-article {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "box1"
+      "box2"
+      "box3"
+      "box4"
+      "box5";
+  }
+
+  .pics {
+    justify-content: center;
+  }
+
+  .pics img {
+    height: auto;
+    width: 100%;
+  }
+
+  .header-name {
+    font-size: 2rem;
+  }
+}
